@@ -3,8 +3,8 @@ const User= require('../models/user');
 const bcrypt= require('bcryptjs');
 
 const postUser=async(req, res)=> {    
-    const {name,email,role,password}= req.body;
-    const user = new User({name,email,role,password});
+    const {name,email,password}= req.body;
+    const user = new User({name,email,password});
     //Encriptar en BD
      const salt = bcrypt.genSaltSync();
      user.password=bcrypt.hashSync(password,salt);
